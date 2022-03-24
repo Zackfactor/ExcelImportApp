@@ -28,21 +28,22 @@ namespace ExcelImportApp
 
         // GET: api/Client
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClientModel>>> GetClientModel()
+        public async Task<ActionResult<IEnumerable<ClientModel>>> GetClientModel()//Gets the list from the Db
         {
-            return await _context.ClientModel.ToListAsync();
+            var modelX = await _context.ClientModel.ToListAsync();
+            return Ok(modelX);
         }
 
         // POST: api/Client
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult> Post()
+        public async Task<ActionResult> Post()//Parses data from spreadsheet and saves to Db
         {
             var file = Request.Form.Files[0];
             var models = _importService.ParseClientData(file);
 
-            _context.ClientModel.AddRange(models);
-            await _context.SaveChangesAsync();
+            _context.ClientModel.AddRange(models);//Adds multiple rows to Db
+            await _context.SaveChangesAsync();//Saves to Db
 
             return Ok();
         }

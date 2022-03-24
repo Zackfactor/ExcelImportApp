@@ -8,6 +8,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<ExcelImportAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ExcelImportAppContext")));
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001") });
 
 var app = builder.Build();
 

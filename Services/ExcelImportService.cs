@@ -18,15 +18,12 @@ namespace ExcelImportApp.Services
                 {
                     for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
                     {
-                        if (i < 11)
-                            continue;
-
                         var rowData = new ClientModel();
 
                         for (int j = worksheet.Dimension.Start.Column; j <= worksheet.Dimension.End.Column; j++)
                         {
                             if (worksheet.Cells[i, j].Value == null)
-                                break;
+                                continue;
 
                             if(j == 1)
                             {

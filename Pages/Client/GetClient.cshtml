@@ -1,0 +1,53 @@
+﻿@page "/Client"
+@using ExcelImportApp.Model
+@inject HttpClient ClientHttp
+@model GetClientModel
+
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (Model.ClientModels == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>RSA ID No</th>
+                <th>Email Address</th>
+                <th>Tel No Mobile</th>
+                <th>Medical Scheme</th>
+                <th>Medical Scheme Plan</th>
+                <th>Member Number</th>
+                <th>Dept Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in Model.ClientModels)
+            {
+                <tr>
+                    <td>@forecast.Title</td>
+                    <td>@forecast.FirstName</td>
+                    <td>@forecast.LastName</td>
+                    <td>@forecast.DateOfBirth</td>
+                    <td>@forecast.IdNr</td>
+                    <td>@forecast.EmailAddress</td>
+                    <td>@forecast.TelNr</td>
+                    <td>@forecast.MedicalScheme</td>
+                    <td>@forecast.MedicalSchemePlan</td>
+                    <td>@forecast.MemberNr</td>
+                    <td>@forecast.DepartmentNr</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
