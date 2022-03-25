@@ -15,6 +15,6 @@ namespace ExcelImportApp.Data
         {
         }
 
-        public DbSet<ExcelImportApp.Model.ClientModel> ClientModel { get; set; }
+        public DbSet<ClientModel> ClientModel { get; set; }
     }
 }

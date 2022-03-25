@@ -10,6 +10,8 @@ builder.Services.AddDbContext<ExcelImportAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ExcelImportAppContext")));
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5001") });
 
+builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

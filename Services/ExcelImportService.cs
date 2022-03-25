@@ -68,8 +68,7 @@ namespace ExcelImportApp.Services
                             if (j == 11)
                             {
                                 rowData.DepartmentNr = worksheet.Cells[i, j].Value.ToString();
-                            }
-                            
+                            }  
                         }
 
                         excelData.Add(rowData);

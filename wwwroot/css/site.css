@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+tr:first-child{
+    font-weight: bold;
+}
+tr:nth-child(2){
+    font-weight:bold;
+}
